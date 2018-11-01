@@ -7,7 +7,6 @@ import { FirebaseAuthenticationService } from '../../services/firebase-authentic
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-
   constructor(public firebaseAuthenticationService: FirebaseAuthenticationService) { }
 
   ngOnInit() {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { User } from 'firebase';
@@ -8,16 +8,25 @@ import { User } from 'firebase';
   providedIn: 'root'
 })
 export class FirebaseAuthenticationService {
-  user: Observable<User>;
+  user = new BehaviorSubject<User>(undefined);
+
   constructor(public angularFirebaseAuth: AngularFireAuth) {
-    this.user = angularFirebaseAuth.authState;
+    this.getUser();
   }
 
-  public login() {
-    this.angularFirebaseAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+  public async login() {
+    await this.angularFirebaseAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    this.getUser();
   }
 
-  public logout() {
-    this.angularFirebaseAuth.auth.signOut();
+  public async logout() {
+    await this.angularFirebaseAuth.auth.signOut();
+    this.getUser();
+  }
+
+  private getUser() {
+    this.angularFirebaseAuth.authState.subscribe((user) => {
+      this.user.next(user);
+    });
   }
 }
