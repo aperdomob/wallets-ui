@@ -31,4 +31,8 @@ export class LoginMenuComponent implements OnInit {
 
     return '../../../assets/img/default_avatar.png';
   }
+
+  public isLoggedIn() {
+    return typeof this.user !== 'undefined' && this.user !== null;
+  }
 }
