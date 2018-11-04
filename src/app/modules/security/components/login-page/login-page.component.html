@@ -1,0 +1,7 @@
+<button class="loginBtn loginBtn--google" (click)="login();">Login with Google</button>
+
+<div *ngIf="firebaseAuthenticationService.user | async as user">
+  <h3>Hello {{user.displayName}}</h3>
+  <img [src]="user.photoURL">
+  <button (click)="logout()">Log out</button>
+</div>

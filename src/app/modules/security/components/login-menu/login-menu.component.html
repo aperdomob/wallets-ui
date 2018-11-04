@@ -1,0 +1,9 @@
+<div>
+  <button mat-mini-fab [matMenuTriggerFor]="menu" color="primary">
+    <img class="avatar" [src]="getImagePath()" [matMenuTriggerFor]="menu" />
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item *ngIf="!isLoggedIn()" (click)="login()">Log in</button>
+    <button mat-menu-item *ngIf="isLoggedIn()" (click)="logout()">Log out</button>
+  </mat-menu>
+</div>

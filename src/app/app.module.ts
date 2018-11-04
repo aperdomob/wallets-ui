@@ -1,8 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatSidenavModule, MatToolbarModule, MatListModule, MatIconModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { WalletsModule } from './modules/wallets/wallets.module';
+
+import { SecurityModule } from './modules/security/security.module';
 
 @NgModule({
   declarations: [
@@ -10,9 +15,15 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    WalletsModule,
+    SecurityModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
