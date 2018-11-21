@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginMenuComponent } from './components/login-menu/login-menu.component';
 import { MatButtonModule, MatMenuModule, MatIconModule } from '@angular/material';
+import { StorageModule } from '../storage/storage.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { MatButtonModule, MatMenuModule, MatIconModule } from '@angular/material
     MatMenuModule,
     MatIconModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    StorageModule
   ],
   declarations: [LoginPageComponent, LoginMenuComponent],
   providers: [FirebaseAuthenticationService],

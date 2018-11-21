@@ -1,0 +1,39 @@
+<h2 mat-dialog-title>New Wallet</h2>
+<mat-dialog-content>
+  <mat-form-field class="field" appearance="outline">
+    <input matInput placeholder="Name">
+  </mat-form-field>
+  <mat-form-field class="field" appearance="outline">
+    <textarea matInput placeholder="Description"></textarea>
+  </mat-form-field>
+  <mat-form-field class="field" appearance="outline">
+    <mat-select placeholder="Status">
+        <mat-option>--</mat-option>
+      <mat-option *ngFor="let status of walletStatus" [value]="status">
+        {{status}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="field" appearance="outline">
+    <input matInput class="currency" type="number" placeholder="Goal">
+  </mat-form-field>
+  <mat-form-field class="field" appearance="outline">
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="field" appearance="outline">
+      <mat-select placeholder="Priority">
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let priority of priorities" [value]="priority">
+            {{priority}}
+          </mat-option>
+        </mat-select>
+  </mat-form-field>
+  <mat-checkbox>Postponable</mat-checkbox>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+  <span class="left-spacer"></span>
+  <button class="dialog-button" mat-dialog-close mat-icon-button><mat-icon class="md-48">cancel</mat-icon></button>
+  <button class="dialog-button"mat-icon-button><mat-icon class="md-48">save</mat-icon></button>
+</mat-dialog-actions>
