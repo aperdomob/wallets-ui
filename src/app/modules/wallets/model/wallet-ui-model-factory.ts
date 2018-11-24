@@ -23,7 +23,7 @@ export class WalletUiModelFactory {
       priority: wallet.priority,
       description: wallet.description,
       goal: wallet.goal,
-      dueDate: wallet.dueDate,
+      dueDate: new Date(Date.UTC(wallet.dueDate.getFullYear(), wallet.dueDate.getMonth(), wallet.dueDate.getDate())),
       isPostponable: wallet.isPostponable,
       status: wallet.status
     };

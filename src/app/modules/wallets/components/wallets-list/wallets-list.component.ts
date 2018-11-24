@@ -11,5 +11,4 @@ export class WalletsListComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

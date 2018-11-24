@@ -7,14 +7,19 @@ import {
   MatIconModule,
   MatDialogModule,
   MatFormFieldModule,
-  MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatCheckboxModule } from '@angular/material';
+  MatInputModule,
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule, MatCheckboxModule, MAT_DATE_LOCALE } from '@angular/material';
 import { WalletsFormComponent } from './components/wallets-form/wallets-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StorageModule } from '../storage/storage.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     HttpClientModule,
     MatButtonModule,
     MatIconModule,
@@ -25,7 +30,11 @@ import { StorageModule } from '../storage/storage.module';
     MatDatepickerModule,
     MatNativeDateModule,
     MatCheckboxModule,
+    MatNativeDateModule,
     StorageModule
+  ],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: { useUtc: true } }
   ],
   declarations: [WalletsListComponent, WalletsMainComponent, WalletsFormComponent],
   entryComponents: [WalletsFormComponent]

@@ -31,7 +31,6 @@ export class WalletSessionService {
     return this.http.post<string>(loginUrl, { username, password }, httpOptions)
     .pipe(
       map((response: any) => {
-        console.log('ingresa al set storage');
         this.localStoreService.set('token', response.token);
 
         return response.token;

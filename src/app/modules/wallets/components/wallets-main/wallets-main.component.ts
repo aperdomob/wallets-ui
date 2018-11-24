@@ -16,11 +16,10 @@ export class WalletsMainComponent implements OnInit {
 
   addNew(): void {
     const dialogReft = this.dialog.open(WalletsFormComponent, {
-      width: '500px'
+      width: '500px',
+      data: {}
     });
 
-    dialogReft.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-    });
+    dialogReft.afterClosed().subscribe(() => {});
   }
 }
