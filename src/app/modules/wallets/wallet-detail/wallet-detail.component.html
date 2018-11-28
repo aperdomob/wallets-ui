@@ -1,0 +1,19 @@
+<div *ngIf="wallet">
+  <h2>{{wallet.name}}</h2>
+  <div *ngIf="wallet.description"><i><b>Description:</b> {{wallet.description}}</i></div>
+  <p></p>
+  <mat-form-field>
+    <input matInput appCurrency placeholder="Goal" class="number" value="{{wallet.goal | currency}}" ng-readonly="true">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput appCurrency placeholder="Status" value="{{wallet.status}}" ng-readonly="true">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput appCurrency placeholder="Due Date" value="{{wallet.dueDate | date: 'longDate' : 'UTC'}}" ng-readonly="true">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput appCurrency placeholder="Priority" class="number" value="{{wallet.priority}}" ng-readonly="true">
+  </mat-form-field>
+  <br>
+  <mat-checkbox checked="{{wallet.isPostponable}}" disableRipple="true" onclick="return false;">Postponable</mat-checkbox>
+</div>

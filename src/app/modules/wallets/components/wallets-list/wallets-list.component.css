@@ -1,0 +1,12 @@
+table {
+  width: 100%;
+}
+
+.numeric {
+  text-align: right;
+  padding-right: 1em;
+}
+
+th {
+  text-align: right;
+}

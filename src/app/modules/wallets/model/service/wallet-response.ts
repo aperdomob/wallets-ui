@@ -5,6 +5,6 @@ export interface WalletResponse {
   description?: string;
   goal?: number;
   dueDate?: Date;
-  isPostponable?: boolean;
+  postponable?: boolean;
   status: string;
 }

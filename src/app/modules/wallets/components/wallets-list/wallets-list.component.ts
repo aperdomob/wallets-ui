@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { WalletComponentService } from '../../services/wallet-component.service';
+import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 
 @Component({
   selector: 'app-wallets-list',
@@ -6,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wallets-list.component.css']
 })
 export class WalletsListComponent implements OnInit {
+  displayedColumns: string[] = ['name', 'dueDate', 'goal', 'status', 'priority'];
+  dataSource = new MatTableDataSource([]);
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor() { }
+  constructor(private walletComponentService: WalletComponentService) { }
 
   ngOnInit() {
+    this.walletComponentService.wallets.subscribe((wallets) => {
+      this.dataSource.data = wallets;
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+    });
+
+    this.walletComponentService.getAll();
   }
 }

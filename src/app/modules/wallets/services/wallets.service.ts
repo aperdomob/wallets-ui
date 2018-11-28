@@ -21,13 +21,24 @@ export class WalletsService {
 
   constructor(private http: HttpClient) { }
 
+  public getAll(): Observable<Wallet[]> {
+    return this.http.get<Wallet[]>(this.walletsUrl).pipe(
+      map(this.fromResponseListToModelList),
+      catchError(this.handleError<Wallet[]>('get all wallets', [])));
+  }
   public save(wallet: Wallet): Observable<Wallet> {
     const walletBody = WalletUiModelFactory.fromModelToBody(wallet);
 
     return this.http.post<WalletResponse>(this.walletsUrl, walletBody, httpOptions)
       .pipe(
-        map(this.fromResponseToModel),
+        map(WalletUiModelFactory.fromResponseToModel),
         catchError(this.handleError<Wallet>('save wallet')));
+  }
+
+  get(walletId: string): Observable<Wallet> {
+    const url = `${this.walletsUrl}/${walletId}`;
+
+    return this.http.get<Wallet>(url).pipe(map(WalletUiModelFactory.fromResponseToModel));
   }
 
   private handleError<T> (operation = 'operation', result?: T) {
@@ -38,7 +49,7 @@ export class WalletsService {
     };
   }
 
-  private fromResponseToModel(walletResponse): Wallet {
-    return WalletUiModelFactory.fromResponseToModel(walletResponse);
+  private fromResponseListToModelList(walletResponseList: WalletResponse[]): Wallet[] {
+    return walletResponseList.map((response) => WalletUiModelFactory.fromResponseToModel(response));
   }
 }

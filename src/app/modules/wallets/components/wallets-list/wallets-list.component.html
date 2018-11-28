@@ -1,3 +1,36 @@
-<p>
-  wallets-list works!
-</p>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element"><a routerLink="/wallets/{{element.id}}"> {{element.name}} </a></td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="dueDate">
+    <th mat-header-cell *matHeaderCellDef>Due Date</th>
+    <td mat-cell *matCellDef="let element"> {{element.dueDate | date: 'longDate' : 'UTC'}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="goal">
+    <th mat-header-cell *matHeaderCellDef>Goal</th>
+    <td mat-cell *matCellDef="let element" class="numeric"> {{element.goal | currency}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef>Status</th>
+    <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="priority">
+    <th mat-header-cell *matHeaderCellDef>Priority</th>
+    <td mat-cell *matCellDef="let element" class="numeric"> {{element.priority}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>

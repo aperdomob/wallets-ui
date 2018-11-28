@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MAT_DATE_LOCALE, DateAdapter } from '@angular/material';
 import { WalletConfigService } from '../../services/wallet-config.service';
-import { WalletsService } from '../../services/wallets.service';
+import { WalletComponentService } from '../../services/wallet-component.service';
 
 @Component({
   selector: 'app-wallets-form',
@@ -15,7 +15,7 @@ export class WalletsFormComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<WalletsFormComponent>,
     @Inject(MAT_DIALOG_DATA) public walletData: any,
     private walletConfigService: WalletConfigService,
-    private walletService: WalletsService) {}
+    private walletComponentService: WalletComponentService) {}
 
   ngOnInit() {
     this.walletConfigService.getStatus().subscribe((walletStatus) => {
@@ -30,8 +30,7 @@ export class WalletsFormComponent implements OnInit {
   }
 
   save(wallet) {
-    this.walletService.save(wallet).subscribe(() => {
-      this.dialogRef.close();
-    });
+    this.walletComponentService.save(wallet);
+    this.dialogRef.close(wallet);
   }
 }
