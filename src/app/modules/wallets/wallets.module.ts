@@ -17,6 +17,7 @@ import { StorageModule } from '../storage/storage.module';
 import { FormsModule } from '@angular/forms';
 import { WalletDetailComponent } from './wallet-detail/wallet-detail.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { WalletMovementComponent } from './wallet-movement/wallet-movement.component';
 
 @NgModule({
   imports: [
@@ -41,7 +42,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: { useUtc: true } }
   ],
-  declarations: [WalletsListComponent, WalletsMainComponent, WalletsFormComponent, WalletDetailComponent, StorageModule],
+  declarations: [WalletsListComponent, WalletsMainComponent, WalletsFormComponent, WalletDetailComponent, WalletMovementComponent],
   entryComponents: [WalletsFormComponent]
 })
 export class WalletsModule { }
