@@ -17,5 +17,7 @@
   <br>
   <mat-checkbox checked="{{wallet.isPostponable}}" disableRipple="true" onclick="return false;">Postponable</mat-checkbox>
   <p></p>
+  <button mat-icon-button (click)="addMovement()"><mat-icon>add_circle</mat-icon></button>
+  <p></p>
   <app-wallet-movement></app-wallet-movement>
 </div>

@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { WalletDetailComponent } from './wallet-detail/wallet-detail.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { WalletMovementComponent } from './wallet-movement/wallet-movement.component';
+import { WalletMovementFormComponent } from './wallet-movement-form/wallet-movement-form.component';
 
 @NgModule({
   imports: [
@@ -42,7 +43,13 @@ import { WalletMovementComponent } from './wallet-movement/wallet-movement.compo
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: { useUtc: true } }
   ],
-  declarations: [WalletsListComponent, WalletsMainComponent, WalletsFormComponent, WalletDetailComponent, WalletMovementComponent],
-  entryComponents: [WalletsFormComponent]
+  declarations: [
+    WalletsListComponent,
+    WalletsMainComponent,
+    WalletsFormComponent, WalletDetailComponent, WalletMovementComponent, WalletMovementFormComponent],
+  entryComponents: [
+    WalletsFormComponent,
+    WalletMovementFormComponent
+  ]
 })
 export class WalletsModule { }

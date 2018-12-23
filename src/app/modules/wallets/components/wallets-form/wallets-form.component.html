@@ -18,7 +18,7 @@
     <input matInput [(ngModel)]="walletData.goal" class="number" type="number" placeholder="Goal">
   </mat-form-field>
   <mat-form-field class="field" appearance="outline">
-    <input matInput [matDatepicker]="picker" [(ngModel)]="walletData.dueDate" placeholder="Choose a date">
+    <input matInput [matDatepicker]="picker" [(ngModel)]="walletData.dueDate" placeholder="Due Date">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>

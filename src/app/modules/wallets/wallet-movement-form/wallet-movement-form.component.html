@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Movement</h2>
+<mat-dialog-content>
+  <mat-form-field class="field" appearance="outline">
+    <input matInput [matDatepicker]="picker" [(ngModel)]="movement.date" placeholder="Date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="field" appearance="outline">
+    <input matInput [(ngModel)]="movement.name" placeholder="Name">
+  </mat-form-field>
+  <mat-form-field class="field" appearance="outline">
+      <mat-select [(ngModel)]="movement.type" placeholder="Type">
+        <mat-option *ngFor="let type of movementTypes" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+  </mat-form-field>
+  <mat-form-field class="field" appearance="outline">
+    <input matInput [(ngModel)]="movement.value" class="number" type="number" placeholder="Value">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+  <span class="left-spacer"></span>
+  <button class="dialog-button" mat-dialog-close mat-icon-button>
+    <mat-icon class="md-48">cancel</mat-icon>
+  </button>
+  <button class="dialog-button" mat-icon-button (click)="save(walletData)">
+    <mat-icon class="md-48">save</mat-icon>
+  </button>
+</mat-dialog-actions>

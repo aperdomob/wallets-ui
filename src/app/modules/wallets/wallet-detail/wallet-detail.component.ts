@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WalletComponentService } from '../services/wallet-component.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { WalletMovementFormComponent } from '../wallet-movement-form/wallet-movement-form.component';
 
 @Component({
   selector: 'app-wallet-detail',
@@ -13,7 +15,8 @@ export class WalletDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private walletComponentService: WalletComponentService) {
+    private walletComponentService: WalletComponentService,
+    private dialog: MatDialog) {
       this.walletId = this.route.snapshot.paramMap.get('id');
     }
 
@@ -27,5 +30,18 @@ export class WalletDetailComponent implements OnInit {
     });
 
     this.walletComponentService.load(this.walletId);
+  }
+
+  addMovement(): void {
+    const dialogReft = this.dialog.open(WalletMovementFormComponent, {
+      width: '500px',
+      data: {
+        date: new Date(),
+        type: 'Income'
+      }
+    });
+
+    dialogReft.afterClosed().subscribe(() => {
+    });
   }
 }
