@@ -13,7 +13,8 @@ export class WalletUiModelFactory {
       goal: walletResponse.goal,
       dueDate: walletResponse.dueDate,
       isPostponable: walletResponse.postponable,
-      status: walletResponse.status
+      status: walletResponse.status,
+      saved: walletResponse.saved
     };
   }
   static fromModelToBody(wallet: Wallet): WalletBody {

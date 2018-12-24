@@ -10,7 +10,7 @@ import {
   MatInputModule,
   MatSelectModule,
   MatDatepickerModule,
-  MatNativeDateModule, MatCheckboxModule, MAT_DATE_LOCALE, MatTableModule, MatPaginatorModule } from '@angular/material';
+  MatNativeDateModule, MatCheckboxModule, MAT_DATE_LOCALE, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { WalletsFormComponent } from './components/wallets-form/wallets-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StorageModule } from '../storage/storage.module';
@@ -38,7 +38,8 @@ import { WalletMovementFormComponent } from './wallet-movement-form/wallet-movem
     MatTableModule,
     StorageModule,
     MatPaginatorModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSortModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: { useUtc: true } }

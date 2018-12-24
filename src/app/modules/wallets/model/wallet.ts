@@ -7,4 +7,5 @@ export interface Wallet {
   dueDate?: Date;
   isPostponable?: boolean;
   status: string;
+  saved: number;
 }

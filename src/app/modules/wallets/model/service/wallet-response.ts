@@ -7,4 +7,5 @@ export interface WalletResponse {
   dueDate?: Date;
   postponable?: boolean;
   status: string;
+  saved: number;
 }

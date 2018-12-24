@@ -8,7 +8,7 @@ import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
   styleUrls: ['./wallets-list.component.css']
 })
 export class WalletsListComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'dueDate', 'goal', 'status', 'priority'];
+  displayedColumns: string[] = ['name', 'dueDate', 'goal', 'saved', 'status', 'priority'];
   dataSource = new MatTableDataSource([]);
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -18,8 +18,8 @@ export class WalletsListComponent implements OnInit {
   ngOnInit() {
     this.walletComponentService.wallets.subscribe((wallets) => {
       this.dataSource.data = wallets;
-      this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
 
     this.walletComponentService.getAll();
