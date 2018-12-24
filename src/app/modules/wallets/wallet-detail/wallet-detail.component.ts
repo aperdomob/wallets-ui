@@ -3,6 +3,7 @@ import { WalletComponentService } from '../services/wallet-component.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { WalletMovementFormComponent } from '../wallet-movement-form/wallet-movement-form.component';
+import { Movement } from '../model/movement';
 
 @Component({
   selector: 'app-wallet-detail',
@@ -33,11 +34,17 @@ export class WalletDetailComponent implements OnInit {
   }
 
   addMovement(): void {
+    const movement: Movement = {
+      type: 'Income',
+      wallet: this.wallet
+    };
+
     const dialogReft = this.dialog.open(WalletMovementFormComponent, {
       width: '500px',
       data: {
         date: new Date(),
-        type: 'Income'
+        type: 'Income',
+        wallet: this.wallet
       }
     });
 
