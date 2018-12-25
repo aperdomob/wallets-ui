@@ -22,7 +22,7 @@ export class WalletsService {
   constructor(private http: HttpClient) { }
 
   public getAll(): Observable<Wallet[]> {
-    return this.http.get<Wallet[]>(this.walletsUrl).pipe(
+    return this.http.get<WalletResponse[]>(this.walletsUrl).pipe(
       map(this.fromResponseListToModelList),
       catchError(this.handleError<Wallet[]>('get all wallets', [])));
   }
@@ -38,7 +38,7 @@ export class WalletsService {
   get(walletId: string): Observable<Wallet> {
     const url = `${this.walletsUrl}/${walletId}`;
 
-    return this.http.get<Wallet>(url).pipe(map(WalletUiModelFactory.fromResponseToModel));
+    return this.http.get<WalletResponse>(url).pipe(map(WalletUiModelFactory.fromResponseToModel));
   }
 
   private handleError<T> (operation = 'operation', result?: T) {

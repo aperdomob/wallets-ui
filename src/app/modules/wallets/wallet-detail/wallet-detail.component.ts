@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { WalletMovementFormComponent } from '../wallet-movement-form/wallet-movement-form.component';
 import { Movement } from '../model/movement';
+import { WalletsFormComponent } from '../components/wallets-form/wallets-form.component';
 
 @Component({
   selector: 'app-wallet-detail',
@@ -46,6 +47,16 @@ export class WalletDetailComponent implements OnInit {
         type: 'Income',
         wallet: this.wallet
       }
+    });
+
+    dialogReft.afterClosed().subscribe(() => {
+    });
+  }
+
+  edit() {
+    const dialogReft = this.dialog.open(WalletsFormComponent, {
+      width: '500px',
+      data: { ...this.wallet }
     });
 
     dialogReft.afterClosed().subscribe(() => {

@@ -1,4 +1,7 @@
 <div *ngIf="wallet">
+    <button mat-icon-button (click)="edit()"><mat-icon>mode_edit</mat-icon></button>
+  <p></p>
+
   <h2>{{wallet.name}}</h2>
   <div *ngIf="wallet.description"><i><b>Description:</b> {{wallet.description}}</i></div>
   <p></p>
@@ -15,7 +18,8 @@
     <input matInput appCurrency placeholder="Priority" class="number" value="{{wallet.priority}}" ng-readonly="true">
   </mat-form-field>
   <br>
-  <mat-checkbox checked="{{wallet.isPostponable}}" disableRipple="true" onclick="return false;">Postponable</mat-checkbox>
+  <!-- <mat-checkbox checked="{{wallet.isPostponable}}">Postponable</mat-checkbox> -->
+  <mat-checkbox [(ngModel)]="wallet.isPostponable"  disableRipple="true" onclick="return false;">Postponable</mat-checkbox>
   <p></p>
   <button mat-icon-button (click)="addMovement()"><mat-icon>add_circle</mat-icon></button>
   <p></p>

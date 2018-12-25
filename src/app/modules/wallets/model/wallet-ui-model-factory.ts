@@ -12,7 +12,7 @@ export class WalletUiModelFactory {
       priority: walletResponse.priority,
       description: walletResponse.description,
       goal: walletResponse.goal,
-      dueDate: walletResponse.dueDate,
+      dueDate: walletResponse.dueDate !== undefined ? new Date(walletResponse.dueDate) : undefined,
       isPostponable: walletResponse.postponable,
       status: walletResponse.status,
       saved: walletResponse.saved,
