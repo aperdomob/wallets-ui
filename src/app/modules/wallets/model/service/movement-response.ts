@@ -3,4 +3,6 @@ export interface MovementResponse {
   name?: string;
   type: string;
   value: number;
+  walletMovementId: string;
+  date: Date;
 }

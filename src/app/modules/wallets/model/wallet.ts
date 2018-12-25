@@ -1,3 +1,5 @@
+import { Movement } from './movement';
+
 export interface Wallet {
   id?: string;
   name?: string;
@@ -8,4 +10,5 @@ export interface Wallet {
   isPostponable?: boolean;
   status: string;
   saved: number;
+  movements: Movement[];
 }

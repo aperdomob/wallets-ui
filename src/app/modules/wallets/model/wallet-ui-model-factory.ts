@@ -2,6 +2,7 @@ import { WalletFormModel } from './ui/wallet-form-model';
 import { Wallet } from './wallet';
 import { WalletResponse } from './service/wallet-response';
 import { WalletBody } from './service/wallet-body';
+import { MovementUiModelFactory } from './movement-ui-model-factory';
 
 export class WalletUiModelFactory {
   static fromResponseToModel(walletResponse: WalletResponse): Wallet {
@@ -14,7 +15,8 @@ export class WalletUiModelFactory {
       dueDate: walletResponse.dueDate,
       isPostponable: walletResponse.postponable,
       status: walletResponse.status,
-      saved: walletResponse.saved
+      saved: walletResponse.saved,
+      movements: MovementUiModelFactory.fromResponseList(walletResponse.movements)
     };
   }
   static fromModelToBody(wallet: Wallet): WalletBody {

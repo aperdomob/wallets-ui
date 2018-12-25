@@ -15,9 +15,15 @@ export class MovementUiModelFactory {
 
   static fromResponse(response: MovementResponse): Movement {
     return {
-      movementId: response.id,
+      movementId: response.walletMovementId,
       name: response.name,
-      value: response.type === 'Income' ? response.value : -response.value
+      type: response.type,
+      value: response.value,
+      date: response.date
     };
+  }
+
+  static fromResponseList(response: MovementResponse[]): Movement[] {
+    return response.map((movement) => MovementUiModelFactory.fromResponse(movement));
   }
 }

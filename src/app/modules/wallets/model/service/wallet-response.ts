@@ -1,3 +1,5 @@
+import { MovementResponse } from './movement-response';
+
 export interface WalletResponse {
   id: string;
   name: string;
@@ -8,4 +10,5 @@ export interface WalletResponse {
   postponable?: boolean;
   status: string;
   saved: number;
+  movements: MovementResponse[];
 }
