@@ -44,6 +44,14 @@ export class WalletMovementComponent implements OnInit {
     this.walletComponentService.load(this.walletId);
   }
 
+  public getExpenseTotal(): number {
+    return this.dataSource.data.reduce((accumulator, cv: TableItem) => accumulator + cv.expense, 0);
+  }
+
+  public getIncomeTotal(): number {
+    return this.dataSource.data.reduce((accumulator, cv: TableItem) => accumulator + cv.income, 0);
+  }
+
   private transform(movements: Movement[]): TableItem[] {
     return movements.map((movement) => ({
       date: movement.date,
