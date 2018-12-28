@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { WalletComponentService } from '../services/wallet-component.service';
+import { WalletComponentService } from '../../services/wallet-component.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { WalletMovementFormComponent } from '../wallet-movement-form/wallet-movement-form.component';
-import { Movement } from '../model/movement';
-import { WalletsFormComponent } from '../components/wallets-form/wallets-form.component';
+import { Movement } from '../../model/movement';
+import { WalletsFormComponent } from '../wallets-form/wallets-form.component';
 
 @Component({
   selector: 'app-wallet-detail',

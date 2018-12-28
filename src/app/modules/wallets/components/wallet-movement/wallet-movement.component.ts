@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
-import { WalletComponentService } from '../services/wallet-component.service';
-import { Wallet } from '../model/wallet';
-import { Movement } from '../model/movement';
+import { WalletComponentService } from '../../services/wallet-component.service';
+import { Wallet } from '../../model/wallet';
+import { Movement } from '../../model/movement';
 
 interface TableItem {
   date: Date;

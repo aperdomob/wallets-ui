@@ -15,10 +15,10 @@ import { WalletsFormComponent } from './components/wallets-form/wallets-form.com
 import { HttpClientModule } from '@angular/common/http';
 import { StorageModule } from '../storage/storage.module';
 import { FormsModule } from '@angular/forms';
-import { WalletDetailComponent } from './wallet-detail/wallet-detail.component';
+import { WalletDetailComponent } from './components/wallet-detail/wallet-detail.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { WalletMovementComponent } from './wallet-movement/wallet-movement.component';
-import { WalletMovementFormComponent } from './wallet-movement-form/wallet-movement-form.component';
+import { WalletMovementComponent } from './components/wallet-movement/wallet-movement.component';
+import { WalletMovementFormComponent } from './components/wallet-movement-form/wallet-movement-form.component';
 
 @NgModule({
   imports: [

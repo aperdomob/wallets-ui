@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Movement } from '../model/movement';
-import { WalletMovementService } from '../services/wallet-movement.service';
-import { WalletComponentService } from '../services/wallet-component.service';
+import { Movement } from '../../model/movement';
+import { WalletMovementService } from '../../services/wallet-movement.service';
+import { WalletComponentService } from '../../services/wallet-component.service';
 
 @Component({
   selector: 'app-wallet-movement-form',
