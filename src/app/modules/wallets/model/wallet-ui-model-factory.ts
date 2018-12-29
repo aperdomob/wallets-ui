@@ -3,6 +3,7 @@ import { Wallet } from './wallet';
 import { WalletResponse } from './service/wallet-response';
 import { WalletBody } from './service/wallet-body';
 import { MovementUiModelFactory } from './movement-ui-model-factory';
+import * as moment from 'moment';
 
 export class WalletUiModelFactory {
   static fromResponseToModel(walletResponse: WalletResponse): Wallet {
@@ -12,7 +13,7 @@ export class WalletUiModelFactory {
       priority: walletResponse.priority,
       description: walletResponse.description,
       goal: walletResponse.goal,
-      dueDate: walletResponse.dueDate ? new Date(walletResponse.dueDate) : undefined,
+      dueDate: typeof walletResponse.dueDate === 'string' ? new Date(moment( walletResponse.dueDate).format()) : undefined,
       isPostponable: walletResponse.postponable,
       status: walletResponse.status,
       saved: walletResponse.saved,
@@ -23,7 +24,7 @@ export class WalletUiModelFactory {
     let date;
 
     if (wallet.dueDate !== null && typeof wallet.dueDate !== 'undefined') {
-      date = new Date(Date.UTC(wallet.dueDate.getFullYear(), wallet.dueDate.getMonth(), wallet.dueDate.getDate()));
+      date = moment(wallet.dueDate).format('YYYY-MM-DD');
     }
 
     return {

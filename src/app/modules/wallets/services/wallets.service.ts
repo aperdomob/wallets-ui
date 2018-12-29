@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { WalletBody } from '../model/service/wallet-body';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { WalletResponse } from '../model/service/wallet-response';
 import { Wallet } from '../model/wallet';

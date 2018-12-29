@@ -10,15 +10,18 @@ import {
   MatInputModule,
   MatSelectModule,
   MatDatepickerModule,
-  MatNativeDateModule, MatCheckboxModule, MAT_DATE_LOCALE, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+  MatCheckboxModule,
+  MatNativeDateModule,
+  MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { WalletsFormComponent } from './components/wallets-form/wallets-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StorageModule } from '../storage/storage.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WalletDetailComponent } from './components/wallet-detail/wallet-detail.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { WalletMovementComponent } from './components/wallet-movement/wallet-movement.component';
 import { WalletMovementFormComponent } from './components/wallet-movement-form/wallet-movement-form.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
@@ -34,15 +37,12 @@ import { WalletMovementFormComponent } from './components/wallet-movement-form/w
     MatDatepickerModule,
     MatNativeDateModule,
     MatCheckboxModule,
-    MatNativeDateModule,
     MatTableModule,
     StorageModule,
     MatPaginatorModule,
     AppRoutingModule,
-    MatSortModule
-  ],
-  providers: [
-    { provide: MAT_DATE_LOCALE, useValue: { useUtc: true } }
+    MatSortModule,
+    ReactiveFormsModule
   ],
   declarations: [
     WalletsListComponent,

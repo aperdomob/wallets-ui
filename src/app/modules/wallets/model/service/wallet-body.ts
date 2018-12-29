@@ -4,7 +4,7 @@ export interface WalletBody {
   priority?: number;
   description?: string;
   goal?: number;
-  dueDate?: Date;
+  dueDate?: string;
   postponable?: boolean;
   status: string;
 }
