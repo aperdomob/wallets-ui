@@ -12,7 +12,7 @@
     <input matInput appCurrency placeholder="Status" value="{{wallet.status}}" ng-readonly="true">
   </mat-form-field>
   <mat-form-field>
-    <input matInput appCurrency placeholder="Due Date" value="{{wallet.dueDate | date: 'longDate' : 'UTC'}}" ng-readonly="true">
+    <input matInput appCurrency placeholder="Due Date" value="{{wallet.dueDate | date: 'longDate'}}" ng-readonly="true">
   </mat-form-field>
   <mat-form-field>
     <input matInput appCurrency placeholder="Priority" class="number" value="{{wallet.priority}}" ng-readonly="true">
